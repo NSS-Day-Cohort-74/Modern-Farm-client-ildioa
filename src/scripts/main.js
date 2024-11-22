@@ -5,28 +5,45 @@ import { createPlan } from "./plan.js"
 import { harvestPlants } from "./harvester.js";
 import { Catalog } from "./catalog.js";
 import { sortHarvest, mergePlantsToHTML } from "./sort.js";
-//Store Dom reference to Container element
+import { barn } from "./storageBarn.js";
+import { createAsparagus } from "./seeds/asparagus.js";
+import { processor } from "./processingFacility.js";
+//store DOM reference to Container element
 const htmlContainer = document.querySelector(".container");
 //console.log("Welcome to the main module")
 
-//Store yearly plan Nested Array in Variable
+//store yearly plan Nested Array in Variable yearlyPlan
 const yearlyPlan = createPlan();
+const storageBarn = barn();
 
 // take in yearlyPlan and push every item to plantsInField Array
 plantSeeds(yearlyPlan); 
- 
 //store copy of plantsInField Array 
 const plantsInField = usePlants();
-
 // take in plantsInField and return new Array of harvested plants
 const harvestedPlants = harvestPlants(plantsInField);
 
-const sortedHarvest = sortHarvest(harvestedPlants);
+//push harvested plants to storageBarn Array
+harvestedPlants.forEach((plant) => storageBarn.push(plant))
+//console.log(storageBarn.getItems())
 
-const mergedPlants = mergePlantsToHTML(harvestedPlants);
+processor().enqueue(createAsparagus)
+processor().enqueue(createAsparagus)
+processor().enqueue(createAsparagus)
+processor().enqueue(createAsparagus)
+
+
+console.log(processor().size())
+//const sortedHarvest = sortHarvest(harvestedPlants);
+
+//const mergedPlants = mergePlantsToHTML(harvestedPlants);
+
 // take in harvestedPlants Array and generate html element for every index,
-// storing that element in a new array and joining that Array to create html string to return 
-const plantHtml = Catalog(sortedHarvest);
+// storing that element in a new array and joining that Array
+// to create html string to return 
+const plantHtml = Catalog(harvestedPlants);
 
 // assigning innerHTML of container Element to the plantHTML string
-htmlContainer.innerHTML = mergedPlants;
+htmlContainer.innerHTML = plantHtml;
+
+
