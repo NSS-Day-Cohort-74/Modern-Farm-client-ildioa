@@ -9,8 +9,11 @@ select,
 textarea {
 	color: #404040;
 	font-family: "Comfortaa", Arial, sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1.5;
+}
+html {
+    background-color: rgb(248, 231, 172);
 }
 
 h1,h2,h3,h4,h5,h6 {
