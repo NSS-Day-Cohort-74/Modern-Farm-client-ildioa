@@ -1,10 +1,16 @@
 .container {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     flex-basis: 50%;
+    text-align: center;
+    margin-top: 5rem;
 }
 
 .plant {
     margin: 2rem;
+}
+
+plants-merged {
+
 }

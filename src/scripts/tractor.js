@@ -7,7 +7,7 @@ import { createSoybean } from "./seeds/soybean.js";
 import { createSunflower } from "./seeds/sunflower.js";
 import { createWheat } from "./seeds/wheat.js";
 
-// 
+// Iterate over plan Nested Array and add crops to plantsInField Array
 export const plantSeeds = (createPlanArry) => {
 	for (const row of createPlanArry) {
 		for (const plant of row) {
