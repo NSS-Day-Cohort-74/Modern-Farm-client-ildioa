@@ -9,5 +9,4 @@ export const addPlant = (seedObj) => {
 	}
 };
 
-//export const usePlants = () => plantsInField.map((plant) => plant);
-export const usePlants = () => structuredClone(plantsInField);
+export const usePlants = () => plantsInField.map((plant) => plant);

@@ -1,36 +1,37 @@
 import { barn } from "./storageBarn.js";
-let conveyorBelt = []
 
-export const processor = () => ({
-
-        enqueue: function (crop) {
-            if (this.size() === 3) {
-                console.error("Queue full")
-            } else {
-                conveyorBelt.push(crop)
-            }},
-        dequeue: function () { 
-            if (barn().isEmpty()) {
-                conveyorBelt.shift()
-            } else if (this.size() > 1) {
-                conveyorBelt.shift()
-            } else {console.error("Not enough on conveyor belt")
-            }
-        },
-        next: () => (conveyorBelt[1].type),
-        last: () => (conveyorBelt[conveyorBelt.length -1].type),
-        isEmpty: () => (conveyorBelt.length === 0),
-        size: () => (conveyorBelt.length),
-})
-
-export const processedGoods = () => {
-    processor().dequeue()
-    switch () {
-        case():
-        case():
-        case():
-        case():
-        case():
-        case():
-    }
-}
+export const processor = () => {
+	return {
+		conveyorBelt: [],
+		MAX_QUEUE_SIZE: 3,
+		MIN_QUEUE_SIZE: 1,
+		enqueue: function (crop) {
+			if (this.size() === this.MAX_QUEUE_SIZE) {
+				console.error("Queue full");
+			} else {
+				this.conveyorBelt.push(crop);
+			}
+		},
+		dequeue: function () {
+			if (this.size() === this.MAX_QUEUE_SIZE) {
+				return this.conveyorBelt.shift();
+			} else if (barn().isEmpty()) {
+				return this.conveyorBelt.shift();
+			} else {
+				console.error("Not enough on conveyor belt");
+			}
+		},
+		next: function () {
+			return this.conveyorBelt[0].type;
+		},
+		last: function () {
+			return this.conveyorBelt[conveyorBelt.length - 1].type;
+		},
+		isEmpty: function () {
+			return this.conveyorBelt.length === 0;
+		},
+		size: function () {
+			return this.conveyorBelt.length;
+		},
+	};
+};

@@ -13,25 +13,30 @@ export const plantSeeds = (createPlanArry) => {
 		for (const plant of row) {
 			switch (plant) {
 				case "Corn":
+					//add corn plant Object to plantsInField Array
 					addPlant(createCorn());
 					break;
 				case "Sunflower":
+					//add sunflower plant Object to plantsInField Array
 					addPlant(createSunflower());
 					break;
 				case "Soybean":
+					//add Soybean plant Object to plantsInField Array
 					addPlant(createSoybean());
 					break;
 				case "Asparagus":
+					//add Asparagus plant Object to plantsInField Array
 					addPlant(createAsparagus());
 					break;
 				case "Potato":
+					//add Potato plant Object to plantsInField Array
 					addPlant(createPotato());
 					break;
 				case "Wheat":
+					//add Wheat plant Object to plantsInField Array
 					addPlant(createWheat());
 					break;
 			}
 		}
 	}
 };
-

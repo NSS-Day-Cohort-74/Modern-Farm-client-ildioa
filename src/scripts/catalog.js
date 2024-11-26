@@ -1,11 +1,17 @@
-export const Catalog = (harvestedPlants) => 
-    harvestedPlants.map((plant) => `
+export const catalog = (harvestedPlants) =>
+	harvestedPlants
+		.map((plant) => {
+			return `
 <section class="plant">${plant.type}</section>
-`
-).join("");
+`;
+		})
+		.join("");
 
-export const emojiCatalog = (harvestedPlants) => 
-    harvestedPlants.map((plant) => `
+export const emojiCatalog = (harvestedPlants) =>
+	harvestedPlants
+		.map(
+			(plant) => `
 <section class="plant">${plant.emoji}</section>
-`
-).join("");
+`,
+		)
+		.join("");
