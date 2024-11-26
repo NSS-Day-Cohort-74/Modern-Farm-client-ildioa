@@ -24,6 +24,8 @@ const plantsInField = usePlants();
 // take in plantsInField and return new Array of harvested plants
 const harvestedPlants = harvestPlants(plantsInField);
 
+//generate emojified html for displaying our catalog
 let plantHTML = emojiCatalog(harvestedPlants);
 
+// assigning the innerHTML property of our DOM reference htmlContainer to our plantHTML (html) string
 htmlContainer.innerHTML = plantHTML;
