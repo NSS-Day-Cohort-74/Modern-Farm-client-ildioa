@@ -6,9 +6,9 @@ import { harvestPlants } from "./harvester.js";
 import { barn } from "./storageBarn.js";
 import { processor } from "./processingFacility.js";
 import { catalog, emojiCatalog } from "./catalog.js";
+//
 //store DOM reference to Container element
 const htmlContainer = document.querySelector(".container");
-//console.log("Welcome to the main module")
 
 //store yearly plan Nested Array in Variable yearlyPlan
 const yearlyPlan = createPlan();
